@@ -1,0 +1,24 @@
+{
+  "name": "nano-open-rpc",
+  "version": "1.0.0",
+  "description": "Get's Nodes with open RPC port",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BitDesert/nano-open-rpc.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BitDesert/nano-open-rpc/issues"
+  },
+  "homepage": "https://github.com/BitDesert/nano-open-rpc#readme",
+  "dependencies": {
+    "portscanner": "^2.2.0",
+    "request": "^2.88.0",
+    "request-promise": "^4.2.4"
+  }
+}
