@@ -18,8 +18,7 @@
   },
   "homepage": "https://github.com/BitDesert/nano-open-rpc#readme",
   "dependencies": {
-    "portscanner": "^2.2.0",
-    "request": "^2.88.0",
-    "request-promise": "^4.2.4"
+    "axios": "^0.21.1",
+    "portscanner": "^2.2.0"
   }
 }

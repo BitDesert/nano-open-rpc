@@ -1,12 +1,12 @@
-var rp = require('request-promise');
 var portscanner = require('portscanner');
+const axios = require('axios');
 
-const regex_ip = /\[::ffff:([0-9.]+)\]:7075/
+const regex_ip = /\[::ffff:([0-9.]+)\]:[0-9]+/
 
 async function getRPC() {
-    var peers = await rp('https://api.nanocrawler.cc/peers', { json: true });
+    var peers = await axios.post('https://mynano.ninja/api/node', { action: 'peers' })
 
-    for (const peer in peers.peers) {
+    for (const peer in peers.data.peers) {
         var match = regex_ip.exec(peer)
         if (match) {
             checkRPC(match[1])
@@ -25,16 +25,8 @@ async function checkRPC(ip) {
 }
 
 async function getVersion(ip){
-    var rpc = await rp({
-        method: 'POST',
-        uri: "http://" + ip + ":7076",
-        body: {
-            "action": "version" 
-        },
-        json: true
-    })
-    console.log(ip, rpc.node_vendor)
-
+    var rpc = await axios.post("http://" + ip + ":7076", { "action": "version" })
+    console.log(ip, rpc.data.node_vendor)
 }
 
 getRPC()
